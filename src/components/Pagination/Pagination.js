@@ -63,7 +63,7 @@ const PaginationComponent = ({ moviesData }) => {
       <Row>
         {currentMovies.map((movie, index) => (
           <Col key={index} xs={12} md={4} className="mb-4">
-            <Card>
+            <Card style={{ backgroundColor: "#bcc6d9" }}>
               <Card.Body>
                 <Card.Title>{movie.title}</Card.Title>
                 <Card.Text>

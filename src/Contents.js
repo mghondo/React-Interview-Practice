@@ -7,7 +7,10 @@ import PaginationComponent from "./components/Pagination/Pagination";
 import moviesData from "./components/Pagination/paginationData";
 import fileExplorerData from "./components/FileExplorer/fileExplorerData";
 import Jumbotron from "./components/Jumbotron";
-import codeImage from "./imgs/code.jpg"; // Import the image
+import codeImage from "./imgs/code.jpg";
+// import ProgressBar from "react-bootstrap/ProgressBar";
+import ProgressBarComp from "./components/ProgressBar/ProgressBar";
+import ProgressBarParent from "./components/ProgressBar/ProgressBarParent";
 
 // Array of components
 const components = [
@@ -24,6 +27,19 @@ const components = [
       "This component will demonstrate pagination functionality. It allows users to navigate through pages of content efficiently.",
     path: "/pagination",
     component: () => <PaginationComponent moviesData={moviesData} />,
+  },
+  {
+    name: "Progress Bar",
+    description:
+      "Visualize progress with our dynamic progress bar component. This interactive element allows you to represent completion status, loading times, or any quantifiable progress in a clear and engaging manner.",
+    path: "/progress-bar",
+    component: () => {
+      return (
+        <div>
+          <ProgressBarParent />
+        </div>
+      );
+    },
   },
   // Add more components here as you create them
 ];

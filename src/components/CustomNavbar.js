@@ -21,6 +21,9 @@ const CustomNavbar = () => {
               <LinkContainer to="/pagination">
                 <NavDropdown.Item>Pagination</NavDropdown.Item>
               </LinkContainer>
+              <LinkContainer to="/progress-bar">
+                <NavDropdown.Item>Progress Bar</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

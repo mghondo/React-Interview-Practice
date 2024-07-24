@@ -1,0 +1,57 @@
+.custom-button {
+    margin-top: 20px;
+}
+
+/* Your existing CSS styles */
+.progress {
+    height: 50px;
+    width: 100%;
+    background-color: #bcc6d9;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.progress .percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.progress div {
+    background-color: rgb(110, 220, 237);
+    height: 100%;
+    width: 20%;
+}
+
+.css-code-container,
+.progress-bar-code-container,
+.progress-bar-parent-code-container {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.css-code-container pre,
+.progress-bar-code-container pre,
+.progress-bar-parent-code-container pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.css-code-container code,
+.progress-bar-code-container code,
+.progress-bar-parent-code-container code {
+    color: #333;
+    font-size: 14px;
+}

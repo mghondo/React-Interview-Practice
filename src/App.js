@@ -6,6 +6,7 @@ import Jumbotron from "./components/Jumbotron";
 import Contents from "./Contents";
 import codeImage from "./imgs/code.jpg"; // Import the image
 
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
