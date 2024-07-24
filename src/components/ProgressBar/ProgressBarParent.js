@@ -66,11 +66,11 @@ const ProgressBarParent = () => {
         </li>
       </ul>
       <p>
-        This progress bar is not just a static element – it's a fully
-        interactive component that responds to user input. You can speed it up
-        for a quick demonstration or slow it down to observe the smooth
-        transitions. It's perfect for representing loading times, completion
-        status, or any quantifiable progress in your web applications.
+        The progress bar is not just a static element – it's a fully interactive
+        component that responds to user input. You can speed it up for a quick
+        demonstration or slow it down to observe the smooth transitions. It's
+        perfect for representing loading times, completion status, or any
+        quantifiable progress in your web applications.
       </p>
       <p>
         Below, you'll find the progress bar itself, along with controls to
