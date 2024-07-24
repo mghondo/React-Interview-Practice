@@ -6,10 +6,9 @@ import FileExplorer from "./components/FileExplorer/FileExplorer";
 import PaginationComponent from "./components/Pagination/Pagination";
 import moviesData from "./components/Pagination/paginationData";
 import fileExplorerData from "./components/FileExplorer/fileExplorerData";
-import Jumbotron from "./components/Jumbotron";
-import codeImage from "./imgs/code.jpg";
+
 // import ProgressBar from "react-bootstrap/ProgressBar";
-import ProgressBarComp from "./components/ProgressBar/ProgressBar";
+
 import ProgressBarParent from "./components/ProgressBar/ProgressBarParent";
 
 // Array of components

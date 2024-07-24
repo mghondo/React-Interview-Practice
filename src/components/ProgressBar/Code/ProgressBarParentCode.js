@@ -72,7 +72,7 @@ const ProgressBarParent = () => {
           <li>
             <a
               className="dropdown-item"
-              href="#"
+         
               onClick={() => setProgressSpeed(100)}
             >
               100 Milliseconds
@@ -81,7 +81,7 @@ const ProgressBarParent = () => {
           <li>
             <a
               className="dropdown-item"
-              href="#"
+           
               onClick={() => setProgressSpeed(75)}
             >
               75 Milliseconds
@@ -90,7 +90,7 @@ const ProgressBarParent = () => {
           <li>
             <a
               className="dropdown-item"
-              href="#"
+          
               onClick={() => setProgressSpeed(25)}
             >
               25 Milliseconds
@@ -99,7 +99,7 @@ const ProgressBarParent = () => {
           <li>
             <a
               className="dropdown-item"
-              href="#"
+            
               onClick={() => setProgressSpeed(10)}
             >
               Ludicrous Speed!!
