@@ -40,9 +40,25 @@ const PaginationComponent = ({ moviesData }) => {
     <Container className="mt-4">
       <h2>Pagination</h2>
       <p className="mb-4">
-        This component demonstrates pagination functionality. It allows users to
-        navigate through pages of movie data efficiently. Each page displays 9
-        movie cards with their title, year, and top actors.
+        The Pagination component efficiently navigates large datasets,
+        specifically designed for browsing movie information. It features:
+      </p>
+      <ul>
+        <li>Dynamic page calculation based on dataset size</li>
+        <li>
+          Display of 9 movie cards per page, showing title, year, and top actors
+        </li>
+        <li>
+          Interactive navigation with First, Previous, Next, and Last buttons
+        </li>
+        <li>Direct page selection through numbered buttons</li>
+        <li>Responsive grid layout for various devices</li>
+        <li>Options to view raw JSON data and component source code</li>
+      </ul>
+      <p>
+        This component showcases advanced React concepts like state management
+        with hooks, conditional rendering, and UI library integration, providing
+        an intuitive exploration of large datasets.
       </p>
       <Button onClick={() => setShowJson(!showJson)} className="mb-3 me-2">
         {showJson ? "Hide JSON Data" : "Show JSON Data"}

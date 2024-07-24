@@ -52,10 +52,24 @@ const FileExplorer = ({ fileExplorerData }) => {
     <div>
       <h2>File Explorer</h2>
       <p className="mb-4">
-        This component demonstrates a simple file explorer implementation. Click
-        on folder names to expand or collapse them and view their contents. This
-        structure mimics a typical file system, allowing you to navigate through
-        various levels of folders and files.
+        The File Explorer component provides a visual representation of a file
+        system, allowing users to navigate through folders and files. This
+        component is designed to mimic the functionality of a typical file
+        explorer, making it intuitive for users to understand and use.
+      </p>
+      <p>Key features of the File Explorer component include:</p>
+      <ul>
+        <li>Expandable and collapsible folder structure</li>
+        <li>Dynamic rendering of nested folders and files</li>
+        <li>Interactive buttons to toggle folder visibility</li>
+        <li>Options to view raw JSON data and component source code</li>
+        <li>Responsive design with Bootstrap integration</li>
+      </ul>
+      <p>
+        This component showcases advanced React techniques such as state
+        management with hooks, conditional rendering, and recursive component
+        rendering. It provides a user-friendly interface for exploring
+        hierarchical data structures.
       </p>
       <Button onClick={() => setShowJson(!showJson)} className="mb-3 me-2">
         {showJson ? "Hide JSON Data" : "Show JSON Data"}

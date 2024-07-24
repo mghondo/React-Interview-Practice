@@ -90,38 +90,22 @@ const ProgressBarParent = () => {
         </button>
         <ul className="dropdown-menu">
           <li>
-            <a
-              className="dropdown-item"
-              href="#"
-              onClick={() => setProgressSpeed(100)}
-            >
+            <a className="dropdown-item" onClick={() => setProgressSpeed(100)}>
               100 Milliseconds
             </a>
           </li>
           <li>
-            <a
-              className="dropdown-item"
-              href="#"
-              onClick={() => setProgressSpeed(75)}
-            >
+            <a className="dropdown-item" onClick={() => setProgressSpeed(75)}>
               75 Milliseconds
             </a>
           </li>
           <li>
-            <a
-              className="dropdown-item"
-              href="#"
-              onClick={() => setProgressSpeed(25)}
-            >
+            <a className="dropdown-item" onClick={() => setProgressSpeed(25)}>
               25 Milliseconds
             </a>
           </li>
           <li>
-            <a
-              className="dropdown-item"
-              href="#"
-              onClick={() => setProgressSpeed(10)}
-            >
+            <a className="dropdown-item" onClick={() => setProgressSpeed(10)}>
               Ludicrous Speed!!
             </a>
           </li>
