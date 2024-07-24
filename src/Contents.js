@@ -6,6 +6,8 @@ import FileExplorer from "./components/FileExplorer/FileExplorer";
 import PaginationComponent from "./components/Pagination/Pagination";
 import moviesData from "./components/Pagination/paginationData";
 import fileExplorerData from "./components/FileExplorer/fileExplorerData";
+import Jumbotron from "./components/Jumbotron";
+import codeImage from "./imgs/code.jpg"; // Import the image
 
 // Array of components
 const components = [

@@ -4,6 +4,19 @@ import { Card } from "react-bootstrap";
 
 const PaginationCode = () => {
   const code = `
+import React, { useState } from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Pagination as BSPagination,
+  Button,
+  Collapse,
+} from "react-bootstrap";
+import PaginationCode from "./PaginationCode";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const PaginationComponent = ({ moviesData }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [showJson, setShowJson] = useState(false);
