@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./emicss.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import EMICode from "./EMICode";
 
 const EMICalculatorComp = () => {
   const [cost, setCost] = useState(0);
@@ -9,6 +10,7 @@ const EMICalculatorComp = () => {
   const [downPayment, setDownPayment] = useState(0);
   const [tenure, setTenure] = useState(120); // Default to 10 years (120 months)
   const [emi, setEmi] = useState(0);
+  const [showCode, setShowCode] = useState(false);
 
   const formatCurrency = (value) => {
     return new Intl.NumberFormat("en-US", {
@@ -54,6 +56,16 @@ const EMICalculatorComp = () => {
   return (
     <div>
       <h1 className="text-center">EMI Calculator</h1>
+      <div className="text-center mb-3">
+        <button
+          className="btn btn-secondary mb-3"
+          onClick={() => setShowCode(!showCode)}
+        >
+          {showCode ? "Hide Code" : "Show Code"}
+        </button>
+      </div>
+
+      {showCode && <EMICode />}
 
       <div className="inputs-emi">
         <div className="input-inner">
