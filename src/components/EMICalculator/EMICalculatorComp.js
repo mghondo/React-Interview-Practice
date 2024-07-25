@@ -5,7 +5,9 @@ import EMICode from "./EMICode";
 
 const EMICalculatorComp = () => {
   const [cost, setCost] = useState(0);
+  const [interestInput, setInterestInput] = useState("");
   const [interest, setInterest] = useState(0);
+  const [feeInput, setFeeInput] = useState("");
   const [fee, setFee] = useState(0);
   const [downPayment, setDownPayment] = useState(0);
   const [tenure, setTenure] = useState(120); // Default to 10 years (120 months)
@@ -22,6 +24,14 @@ const EMICalculatorComp = () => {
   };
 
   const parseCurrencyInput = (value) => {
+    return Number(value.replace(/[^0-9.-]+/g, ""));
+  };
+
+  const formatPercentage = (value) => {
+    return value.toFixed(2) + "%";
+  };
+
+  const parsePercentageInput = (value) => {
     return Number(value.replace(/[^0-9.-]+/g, ""));
   };
 
@@ -44,6 +54,16 @@ const EMICalculatorComp = () => {
   useEffect(() => {
     calculateEMI();
   }, [cost, interest, fee, downPayment, tenure]);
+
+  const handleInterestBlur = () => {
+    setInterest(parsePercentageInput(interestInput));
+    setInterestInput(formatPercentage(parsePercentageInput(interestInput)));
+  };
+
+  const handleFeeBlur = () => {
+    setFee(parsePercentageInput(feeInput));
+    setFeeInput(formatPercentage(parsePercentageInput(feeInput)));
+  };
 
   const tenureOptions = [
     { years: 10, months: 120 },
@@ -78,24 +98,36 @@ const EMICalculatorComp = () => {
           />
         </div>
         <div className="input-inner">
-          <h3>Interest Rate in %</h3>
-          <input
-            type="number"
-            value={interest}
-            onChange={(e) => setInterest(Number(e.target.value))}
-            placeholder="Interest Rate in %"
-            step="0.1"
-          />
+          <h3>Interest Rate</h3>
+          <div className="input-group">
+            <input
+              type="text"
+              className="form-control"
+              value={interestInput}
+              onChange={(e) => setInterestInput(e.target.value)}
+              onBlur={handleInterestBlur}
+              placeholder="Interest Rate"
+            />
+            <div className="input-group-append">
+              <span className="input-group-text">%</span>
+            </div>
+          </div>
         </div>
         <div className="input-inner">
-          <h3>Processing Fee in %</h3>
-          <input
-            type="number"
-            value={fee}
-            onChange={(e) => setFee(Number(e.target.value))}
-            placeholder="Processing Fee in %"
-            step="0.1"
-          />
+          <h3>Processing Fee</h3>
+          <div className="input-group">
+            <input
+              type="text"
+              className="form-control"
+              value={feeInput}
+              onChange={(e) => setFeeInput(e.target.value)}
+              onBlur={handleFeeBlur}
+              placeholder="Processing Fee"
+            />
+            <div className="input-group-append">
+              <span className="input-group-text">%</span>
+            </div>
+          </div>
         </div>
         <div className="input-inner">
           <h3>Down Payment</h3>
