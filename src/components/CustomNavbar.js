@@ -24,6 +24,9 @@ const CustomNavbar = () => {
               <LinkContainer to="/progress-bar">
                 <NavDropdown.Item>Progress Bar</NavDropdown.Item>
               </LinkContainer>
+              <LinkContainer to="/emi-calculator">
+                <NavDropdown.Item>EMI Calculator</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

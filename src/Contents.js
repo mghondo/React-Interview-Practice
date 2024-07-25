@@ -10,6 +10,7 @@ import fileExplorerData from "./components/FileExplorer/fileExplorerData";
 // import ProgressBar from "react-bootstrap/ProgressBar";
 
 import ProgressBarParent from "./components/ProgressBar/ProgressBarParent";
+import EMICalculatorComp from "./components/EMICalculator/EMICalculatorComp";
 
 // Array of components
 const components = [
@@ -33,11 +34,16 @@ const components = [
       "Visualize progress with our dynamic progress bar component. This interactive element allows you to represent completion status, loading times, or any quantifiable progress in a clear and engaging manner.",
     path: "/progress-bar",
     component: () => {
-      return (
-        <div>
-          <ProgressBarParent />
-        </div>
-      );
+      return <ProgressBarParent />;
+    },
+  },
+  {
+    name: "EMI Calculator",
+    description:
+      "Visualize progress with our dynamic progress bar component. This interactive element allows you to represent completion status, loading times, or any quantifiable progress in a clear and engaging manner.",
+    path: "/emi-calculator",
+    component: () => {
+      return <EMICalculatorComp />;
     },
   },
   // Add more components here as you create them
@@ -57,8 +63,8 @@ function Contents() {
                     <Card.Body>
                       <Card.Title>{comp.name}</Card.Title>
                       <Card.Text>
-                        {comp.description.length > 100
-                          ? `${comp.description.substring(0, 97)}...`
+                        {comp.description.length > 150
+                          ? `${comp.description.substring(0, 147)}...`
                           : comp.description}
                       </Card.Text>
                       <Link to={comp.path} className="btn btn-primary">

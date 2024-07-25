@@ -4,6 +4,11 @@ import ProgressBarComp from "./ProgressBar";
 import CSSCode from "./Code/CSSCode";
 import ProgressBarCode from "./Code/ProgressBarCode";
 import ProgressBarParentCode from "./Code/ProgressBarParentCode";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.js";
 
 const ProgressBarParent = () => {
   const [value, setValue] = useState(0);
@@ -90,24 +95,36 @@ const ProgressBarParent = () => {
         </button>
         <ul className="dropdown-menu">
           <li>
-            <a className="dropdown-item" onClick={() => setProgressSpeed(100)}>
+            <button
+              className="dropdown-item"
+              onClick={() => setProgressSpeed(100)}
+            >
               100 Milliseconds
-            </a>
+            </button>
           </li>
           <li>
-            <a className="dropdown-item" onClick={() => setProgressSpeed(75)}>
+            <button
+              className="dropdown-item"
+              onClick={() => setProgressSpeed(75)}
+            >
               75 Milliseconds
-            </a>
+            </button>
           </li>
           <li>
-            <a className="dropdown-item" onClick={() => setProgressSpeed(25)}>
+            <button
+              className="dropdown-item"
+              onClick={() => setProgressSpeed(25)}
+            >
               25 Milliseconds
-            </a>
+            </button>
           </li>
           <li>
-            <a className="dropdown-item" onClick={() => setProgressSpeed(10)}>
+            <button
+              className="dropdown-item"
+              onClick={() => setProgressSpeed(10)}
+            >
               Ludicrous Speed!!
-            </a>
+            </button>
           </li>
         </ul>
       </div>
