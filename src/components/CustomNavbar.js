@@ -27,6 +27,9 @@ const CustomNavbar = () => {
               <LinkContainer to="/emi-calculator">
                 <NavDropdown.Item>EMI Calculator</NavDropdown.Item>
               </LinkContainer>
+              <LinkContainer to="/draganddrop">
+                <NavDropdown.Item>Drag and Drop</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
