@@ -75,7 +75,27 @@ const EMICalculatorComp = () => {
 
   return (
     <div>
-      <h1 className="text-center">EMI Calculator</h1>
+      <h2>About This EMI Calculator</h2>
+      <p>
+        This EMI (Equated Monthly Installment) Calculator helps you calculate
+        the monthly payments for a loan based on various parameters. You can
+        adjust the total cost, interest rate, processing fee, down payment, and
+        loan tenure to see how they affect your EMI.
+      </p>
+      <p>Key features of this EMI Calculator include:</p>
+      <ul>
+        <li>
+          Calculating the monthly EMI based on the loan amount, interest rate,
+          and tenure.
+        </li>
+        <li>
+          Allowing users to input the total cost of assets, interest rate,
+          processing fee, and down payment.
+        </li>
+        <li>Providing a range slider to adjust the down payment.</li>
+        <li>Displaying the EMI in a formatted currency.</li>
+      </ul>
+
       <div className="text-center mb-3">
         <button
           className="btn btn-secondary mb-3"

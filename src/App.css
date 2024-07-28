@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+/* Default container width */
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Adjust container width for larger screens */
+@media (min-width: 1052px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media (min-width: 552px) {
+  .container {
+    width: 90%;
+  }
+}
