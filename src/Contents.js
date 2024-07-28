@@ -14,6 +14,7 @@ import EMICalculatorComp from "./components/EMICalculator/EMICalculatorComp";
 
 import DragAndDropContext from "./components/DragAndDrop/DragAndDropContext";
 import DraggableList from "./components/DragAndDrop/DraggableList";
+import WeatherApp from "./components/WeatherAPI/WeatherMain";
 
 // Array of components
 const components = [
@@ -60,6 +61,15 @@ const components = [
           <DraggableList />
         </DragAndDropContext>
       );
+    },
+  },
+  {
+    name: "Weather App",
+    description:
+      "The Draggable List Component is a React component that allows users to reorder a list of items using drag-and-drop functionality. This component is built using the ",
+    path: "/weatherapp",
+    component: () => {
+      return <WeatherApp />;
     },
   },
   // Add more components here as you create them

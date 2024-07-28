@@ -30,6 +30,9 @@ const CustomNavbar = () => {
               <LinkContainer to="/draganddrop">
                 <NavDropdown.Item>Drag and Drop</NavDropdown.Item>
               </LinkContainer>
+              <LinkContainer to="/weatherapp">
+                <NavDropdown.Item>Weather API</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
