@@ -15,6 +15,7 @@ import EMICalculatorComp from "./components/EMICalculator/EMICalculatorComp";
 import DragAndDropContext from "./components/DragAndDrop/DragAndDropContext";
 import DraggableList from "./components/DragAndDrop/DraggableList";
 import WeatherApp from "./components/WeatherAPI/WeatherMain";
+import DutSimulation from "./components/DutSimulationForm";
 
 // Array of components
 const components = [
@@ -70,6 +71,15 @@ const components = [
     path: "/weatherapp",
     component: () => {
       return <WeatherApp />;
+    },
+  },
+  {
+    name: "Dutchie Simulation Form",
+    description:
+      "Built in Conjunction with MorgoTools Building App.",
+    path: "/dutsimulation",
+    component: () => {
+      return <DutSimulation />;
     },
   },
   // Add more components here as you create them

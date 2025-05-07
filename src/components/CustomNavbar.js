@@ -33,6 +33,9 @@ const CustomNavbar = () => {
               <LinkContainer to="/weatherapp">
                 <NavDropdown.Item>Weather API</NavDropdown.Item>
               </LinkContainer>
+              <LinkContainer to="/dutsimulation">
+                <NavDropdown.Item>Dutchie Form</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
