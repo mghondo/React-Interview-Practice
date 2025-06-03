@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Row, Col, InputGroup, Dropdown } from 'react-bootstrap';
+import { Form, Button, Row, Col, InputGroup, Dropdown, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const DutSimulation = () => {
@@ -21,24 +21,39 @@ const DutSimulation = () => {
     cbd: '',
     cbdUnit: '%',
     expirationDate: '',
+    cost: '',
+    price: '', // New field for Price
     itemDetails: ''
   };
 
   const [formData, setFormData] = useState(initialFormData);
+  const [activeTab, setActiveTab] = useState('main'); // State to manage active tab
 
   const handleInputChange = (field, value) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
+    setFormData(prev => {
+      const newFormData = {
+        ...prev,
+        [field]: value
+      };
+      // Calculate Price as twice the Cost whenever Cost changes
+      if (field === 'cost') {
+        const costValue = parseFloat(value) || 0;
+        newFormData.price = costValue > 0 ? (costValue * 2).toFixed(2) : '';
+      }
+      return newFormData;
+    });
   };
 
   const handleTypeChange = (value) => {
-    setFormData(prev => ({
-      ...prev,
-      type: value,
-      subType: '' // Reset subType when Type changes
-    }));
+    setFormData(prev => {
+      const newUnits = value === 'Flower' ? { thcUnit: '%', cbdUnit: '%' } : { thcUnit: 'mg', cbdUnit: 'mg' };
+      return {
+        ...prev,
+        type: value,
+        subType: '', // Reset subType when Type changes
+        ...newUnits
+      };
+    });
   };
 
   const handleSubmit = (e) => {
@@ -52,7 +67,6 @@ const DutSimulation = () => {
   };
 
   const generateRandomSku = () => {
-    // Generate a random 9-digit number
     const randomSku = Math.floor(100000000 + Math.random() * 900000000).toString();
     setFormData(prev => ({
       ...prev,
@@ -60,10 +74,8 @@ const DutSimulation = () => {
     }));
   };
 
-  // Options for Type dropdown (from MNumber.py)
   const typeOptions = ['Flower', 'Tincture', 'Topical', 'Edible', 'Vape', 'Unspecified'];
 
-  // Options for Sub-Type dropdown (from BuildingScan.js)
   const subTypeOptions = {
     Flower: ['Ground', 'Mids', 'Full Flower'],
     Edible: ['Gummies', 'Drinks', 'Chocolate', 'Syrup']
@@ -73,43 +85,151 @@ const DutSimulation = () => {
     <div className="container mt-4">
       <h2>Contact Form</h2>
       <Form onSubmit={handleSubmit}>
-        {/* Company */}
-        <Form.Group as={Row} className="mb-3">
-          <Form.Label column xs={2}>Company:</Form.Label>
-          <Col xs={10}>
-            <Form.Control
-              type="text"
-              id="company"
-              name="company"
-              value={formData.company}
-              onChange={(e) => handleInputChange('company', e.target.value)}
-              placeholder="Enter Company"
-            />
-          </Col>
-        </Form.Group>
+        <Nav variant="tabs" activeKey={activeTab} onSelect={(selectedKey) => setActiveTab(selectedKey)} className="mb-3">
+          <Nav.Item>
+            <Nav.Link eventKey="main">Main</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="productOuter">Product Outer</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="productInner">Product Inner</Nav.Link>
+          </Nav.Item>
+        </Nav>
 
-        {/* Drivers */}
-        <Form.Group as={Row} className="mb-3">
-          <Form.Label column xs={2}>Drivers:</Form.Label>
-          <Col xs={10}>
-            <Form.Control
-              type="text"
-              id="drivers"
-              name="drivers"
-              value={formData.drivers}
-              onChange={(e) => handleInputChange('drivers', e.target.value)}
-              placeholder="Enter Drivers"
-            />
-          </Col>
-        </Form.Group>
-
-        {/* Product Display Section */}
         <div className="border rounded p-3 mb-3">
-          <h4>Product Details</h4>
-          <Row>
-            {/* Single Column */}
-            <Col xs={12}>
-              {/* Product Name */}
+          {activeTab === 'main' && (
+            <>
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column xs={2}>Company:</Form.Label>
+                <Col xs={10}>
+                  <Form.Control
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={(e) => handleInputChange('company', e.target.value)}
+                    placeholder="Enter Company"
+                  />
+                </Col>
+              </Form.Group>
+
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column xs={2}>Drivers:</Form.Label>
+                <Col xs={10}>
+                  <Form.Control
+                    type="text"
+                    id="drivers"
+                    name="drivers"
+                    value={formData.drivers}
+                    onChange={(e) => handleInputChange('drivers', e.target.value)}
+                    placeholder="Enter Drivers"
+                  />
+                </Col>
+              </Form.Group>
+            </>
+          )}
+
+          {activeTab === 'productOuter' && (
+            <>
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column xs={2}>Package ID:</Form.Label>
+                <Col xs={10}>
+                  <Form.Control
+                    type="text"
+                    id="packageId"
+                    name="packageId"
+                    value={formData.packageId}
+                    onChange={(e) => handleInputChange('packageId', e.target.value)}
+                    placeholder="Enter Package ID"
+                  />
+                </Col>
+              </Form.Group>
+
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column xs={2}>M Number:</Form.Label>
+                <Col xs={10}>
+                  <Form.Control
+                    type="text"
+                    id="mNumber"
+                    name="mNumber"
+                    value={formData.mNumber}
+                    onChange={(e) => handleInputChange('mNumber', e.target.value)}
+                    placeholder="Enter M Number"
+                  />
+                </Col>
+              </Form.Group>
+
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column xs={2}>Expiration Date:</Form.Label>
+                <Col xs={10}>
+                  <Form.Control
+                    type="text"
+                    id="expirationDate"
+                    name="expirationDate"
+                    value={formData.expirationDate}
+                    onChange={(e) => handleInputChange('expirationDate', e.target.value)}
+                    placeholder="MM/DD/YYYY"
+                  />
+                </Col>
+              </Form.Group>
+
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column xs={2}>Flower Equivalent:</Form.Label>
+                <Col xs={10}>
+                  <Form.Control
+                    type="text"
+                    id="flowerEquivalent"
+                    name="flowerEquivalent"
+                    value={formData.flowerEquivalent}
+                    onChange={(e) => handleInputChange('flowerEquivalent', e.target.value)}
+                    placeholder="Enter Flower Equivalent"
+                  />
+                </Col>
+              </Form.Group>
+
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column xs={2}>Cost:</Form.Label>
+                <Col xs={10}>
+                  <InputGroup>
+                    <InputGroup.Text>$</InputGroup.Text>
+                    <Form.Control
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      id="cost"
+                      name="cost"
+                      value={formData.cost}
+                      onChange={(e) => handleInputChange('cost', e.target.value)}
+                      placeholder="Enter Cost (e.g., 10.99)"
+                    />
+                  </InputGroup>
+                </Col>
+              </Form.Group>
+
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column xs={2}>Price:</Form.Label>
+                <Col xs={10}>
+                  <InputGroup>
+                    <InputGroup.Text>$</InputGroup.Text>
+                    <Form.Control
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      id="price"
+                      name="price"
+                      value={formData.price}
+                      readOnly
+                      placeholder="Price (2x Cost)"
+                    />
+                  </InputGroup>
+                </Col>
+              </Form.Group>
+            </>
+          )}
+
+          {activeTab === 'productInner' && (
+            <>
               <Form.Group as={Row} className="mb-3">
                 <Form.Label column xs={2}>Product Name:</Form.Label>
                 <Col xs={10}>
@@ -125,37 +245,6 @@ const DutSimulation = () => {
                 </Col>
               </Form.Group>
 
-              {/* Package ID */}
-              <Form.Group as={Row} className="mb-3">
-                <Form.Label column xs={2}>Package ID:</Form.Label>
-                <Col xs={10}>
-                  <Form.Control
-                    type="text"
-                    id="packageId"
-                    name="packageId"
-                    value={formData.packageId}
-                    onChange={(e) => handleInputChange('packageId', e.target.value)}
-                    placeholder="Enter Package ID"
-                  />
-                </Col>
-              </Form.Group>
-
-              {/* M Number */}
-              <Form.Group as={Row} className="mb-3">
-                <Form.Label column xs={2}>M Number:</Form.Label>
-                <Col xs={10}>
-                  <Form.Control
-                    type="text"
-                    id="mNumber"
-                    name="mNumber"
-                    value={formData.mNumber}
-                    onChange={(e) => handleInputChange('mNumber', e.target.value)}
-                    placeholder="Enter M Number"
-                  />
-                </Col>
-              </Form.Group>
-
-              {/* Product SKU */}
               <Form.Group as={Row} className="mb-3">
                 <Form.Label column xs={2}>Product SKU:</Form.Label>
                 <Col xs={2}>
@@ -175,7 +264,6 @@ const DutSimulation = () => {
                 </Col>
               </Form.Group>
 
-              {/* Type */}
               <Form.Group as={Row} className="mb-3">
                 <Form.Label column xs={2}>Type:</Form.Label>
                 <Col xs={10}>
@@ -193,7 +281,6 @@ const DutSimulation = () => {
                 </Col>
               </Form.Group>
 
-              {/* Sub-Type (Conditional) */}
               {(formData.type === 'Flower' || formData.type === 'Edible') && (
                 <Form.Group as={Row} className="mb-3">
                   <Form.Label column xs={2}>Sub-Type:</Form.Label>
@@ -213,7 +300,6 @@ const DutSimulation = () => {
                 </Form.Group>
               )}
 
-              {/* Strain */}
               <Form.Group as={Row} className="mb-3">
                 <Form.Label column xs={2}>Strain:</Form.Label>
                 <Col xs={10}>
@@ -228,7 +314,6 @@ const DutSimulation = () => {
                 </Col>
               </Form.Group>
 
-              {/* Days Supply */}
               <Form.Group as={Row} className="mb-3">
                 <Form.Label column xs={2}>Days Supply:</Form.Label>
                 <Col xs={10}>
@@ -243,7 +328,6 @@ const DutSimulation = () => {
                 </Col>
               </Form.Group>
 
-              {/* Weight */}
               <Form.Group as={Row} className="mb-3">
                 <Form.Label column xs={2}>Weight:</Form.Label>
                 <Col xs={10}>
@@ -258,22 +342,6 @@ const DutSimulation = () => {
                 </Col>
               </Form.Group>
 
-              {/* Flower Equivalent */}
-              <Form.Group as={Row} className="mb-3">
-                <Form.Label column xs={2}>Flower Equivalent:</Form.Label>
-                <Col xs={10}>
-                  <Form.Control
-                    type="text"
-                    id="flowerEquivalent"
-                    name="flowerEquivalent"
-                    value={formData.flowerEquivalent}
-                    onChange={(e) => handleInputChange('flowerEquivalent', e.target.value)}
-                    placeholder="Enter Flower Equivalent"
-                  />
-                </Col>
-              </Form.Group>
-
-              {/* THC */}
               <Form.Group as={Row} className="mb-3">
                 <Form.Label column xs={2}>THC:</Form.Label>
                 <Col xs={10}>
@@ -303,7 +371,6 @@ const DutSimulation = () => {
                 </Col>
               </Form.Group>
 
-              {/* CBD */}
               <Form.Group as={Row} className="mb-3">
                 <Form.Label column xs={2}>CBD:</Form.Label>
                 <Col xs={10}>
@@ -333,41 +400,24 @@ const DutSimulation = () => {
                 </Col>
               </Form.Group>
 
-              {/* Expiration Date */}
-              <Form.Group as={Row} className="mb-3">
-                <Form.Label column xs={2}>Expiration Date:</Form.Label>
+              {/* <Form.Group as={Row} className="mb-3">
+                <Form.Label column xs={2}>Item Details:</Form.Label>
                 <Col xs={10}>
                   <Form.Control
-                    type="text"
-                    id="expirationDate"
-                    name="expirationDate"
-                    value={formData.expirationDate}
-                    onChange={(e) => handleInputChange('expirationDate', e.target.value)}
-                    placeholder="MM/DD/YYYY"
+                    as="textarea"
+                    rows={3}
+                    id="itemDetails"
+                    name="itemDetails"
+                    value={formData.itemDetails}
+                    onChange={(e) => handleInputChange('itemDetails', e.target.value)}
+                    placeholder="Enter Item Details"
                   />
                 </Col>
-              </Form.Group>
-            </Col>
-          </Row>
-
-          {/* Item Details (Full Width) */}
-          <Form.Group as={Row} className="mb-3">
-            <Form.Label column xs={2}>Item Details:</Form.Label>
-            <Col xs={10}>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                id="itemDetails"
-                name="itemDetails"
-                value={formData.itemDetails}
-                onChange={(e) => handleInputChange('itemDetails', e.target.value)}
-                placeholder="Enter Item Details"
-              />
-            </Col>
-          </Form.Group>
+              </Form.Group> */}
+            </>
+          )}
         </div>
 
-        {/* Submit and Reset Buttons */}
         <div className="d-flex justify-content-center gap-2">
           <Button type="submit" variant="primary">
             Submit
