@@ -16,6 +16,7 @@ import DragAndDropContext from "./components/DragAndDrop/DragAndDropContext";
 import DraggableList from "./components/DragAndDrop/DraggableList";
 import WeatherApp from "./components/WeatherAPI/WeatherMain";
 import DutSimulation from "./components/DutSimulationForm";
+import DutchSimNew from "./components/DutchieNew/DutchSimNew";
 
 // Array of components
 const components = [
@@ -80,6 +81,15 @@ const components = [
     path: "/dutsimulation",
     component: () => {
       return <DutSimulation />;
+    },
+  },
+  {
+    name: "New Dutchie Simulation Form",
+    description:
+      "Simulation of Dutchie CRM with corresponding Ids...",
+    path: "/dutchie-new",
+    component: () => {
+      return <DutchSimNew />;
     },
   },
   // Add more components here as you create them

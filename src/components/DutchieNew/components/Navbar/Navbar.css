@@ -1,0 +1,27 @@
+.custom-navbar {
+    background-color: #1a2a44;
+  }
+  
+  .custom-search-input {
+    background-color: #2e4057;
+    border: none;
+    color: white;
+  }
+  
+  .custom-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .custom-dropdown-toggle {
+    background-color: #2e4057;
+    border: none;
+    color: white;
+  }
+  
+  .custom-dropdown-toggle:hover {
+    background-color: #3f5673;
+  }
+  
+  body {
+    background-color: #ffffff;
+  }

@@ -1,0 +1,114 @@
+[
+  {
+    "title": "Search...",
+    "id": "global-search-input"
+  },
+  {
+    "title": "Name",
+    "id": "input-input_Name:"
+  },
+  {
+    "title": "SKU",
+    "id": "input-input_SKU:"
+  },
+  {
+    "title": "NDC",
+    "id": "input-input_NDC:"
+  },
+  {
+    "title": "Master category",
+    "id": "input-input_Master category:"
+  },
+  {
+    "title": "Select tags",
+    "id": "input-input_catalog-tags"
+  },
+  {
+    "title": "Grams / concentration",
+    "id": "input-input_Grams / concentration:"
+  },
+  {
+    "title": "Net weight",
+    "id": "input-input_Net weight:"
+  },
+  {
+    "title": "Gross weight",
+    "id": "input-input_Gross weight:"
+  },
+  {
+    "title": "THC content",
+    "id": "input-input_THC content:"
+  },
+  {
+    "title": "CBD content",
+    "id": "input-input_CBD content:"
+  },
+  {
+    "title": "Base price",
+    "id": "input-input_Base price:"
+  },
+  {
+    "title": "Med taxed price",
+    "id": "input-input_Med taxed price:"
+  },
+  {
+    "title": "Rec taxed price",
+    "id": "input-input_Rec taxed price:"
+  },
+  {
+    "title": "Cost",
+    "id": "input-input_Cost:"
+  },
+  {
+    "title": "Select tax categories",
+    "id": "input-input_catalog-tax-categories"
+  },
+  {
+    "title": "Serving size",
+    "id": "input-input_Serving size:"
+  },
+  {
+    "title": "Servings per unit",
+    "id": "input-input_Servings per unit:"
+  },
+  {
+    "title": "Select a strain",
+    "id": "input-input_Strain:"
+  },
+  {
+    "title": "Select a vendor",
+    "id": "input-input_Vendor:"
+  },
+  {
+    "title": "Select a brand",
+    "id": "input-input_Brand:"
+  },
+  {
+    "title": "Flavor",
+    "id": "input-input_Flavor:"
+  },
+  {
+    "title": "Low inventory threshold",
+    "id": "input-input_Low inventory threshold:"
+  },
+  {
+    "title": "Available for",
+    "id": "input-input_Available for:"
+  },
+  {
+    "title": "Max quantity per transaction",
+    "id": "input-input_Max quantity per transaction:"
+  },
+  {
+    "title": "External ID",
+    "id": "input-input_External ID:"
+  },
+  {
+    "title": "Days supply",
+    "id": "input-input_Days supply:"
+  },
+  {
+    "title": "Expiration days",
+    "id": "input-input_Expiration days:"
+  }
+]

@@ -1,0 +1,23 @@
+.dutch-sim-new {
+    min-height: 100vh;
+  }
+  
+  .dutch-sim-new .main-content {
+    display: flex;
+  }
+  
+  .dutch-sim-new .content {
+    padding: 20px;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    .dutch-sim-new .main-content {
+      flex-direction: column;
+    }
+  
+    .dutch-sim-new .content {
+      padding: 10px;
+    }
+  }

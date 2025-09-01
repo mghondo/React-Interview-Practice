@@ -36,6 +36,9 @@ const CustomNavbar = () => {
               <LinkContainer to="/dutsimulation">
                 <NavDropdown.Item>Dutchie Form</NavDropdown.Item>
               </LinkContainer>
+              <LinkContainer to="/dutchie-new">
+                <NavDropdown.Item>New Dutchie Form</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

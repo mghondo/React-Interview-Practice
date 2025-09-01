@@ -1,0 +1,71 @@
+/* src/components/DutchieNew/components/ProductModal/ProductModal.css */
+.custom-modal .modal-content {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.input-field .form-control {
+  width: 100%; /* Ensure full width within the column */
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field .form-control:focus {
+  border-color: #1a2a44;
+  box-shadow: 0 0 5px rgba(26, 42, 68, 0.2);
+  outline: none;
+}
+
+.row {
+  margin-bottom: 15px;
+}
+
+.col {
+  padding: 0 7.5px;
+}
+
+.bi-info-circle {
+  margin-left: 5px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.bi-info-circle:hover {
+  color: #1a2a44;
+}
+
+.navy-button {
+  background-color: #1a2a44;
+  color: white;
+  border: 1px solid #1a2a44;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navy-button:hover {
+  background-color: #142e4d;
+  color: white;
+}
+
+.navy-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(26, 42, 68, 0.5);
+}
